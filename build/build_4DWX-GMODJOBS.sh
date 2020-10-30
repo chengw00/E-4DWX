@@ -24,8 +24,10 @@ if [ -z $DEST ]; then
 export  DEST=$BUILDWORKBASE/build_E-4DWX
 fi
 
-if [ -z $RANGES ]; then
-RANGES="WCBMJ  WCGDE  WCTRL WMMOR WMWD5 WMWS6 WPBOU WPMYJ WPMYN WPNTP WPQNS WPSHN WPUWA WRCAM WSKE2 WSKEB"
+RANGES="GETAC"
+
+if [ -z $MEMBERS ]; then
+MEMBERS="WCBMJ  WCGDE  WCTRL WMMOR WMWD5 WMWS6 WPBOU WPMYJ WPMYN WPNTP WPQNS WPSHN WPUWA WRCAM WSKE2 WSKEB"
 fi
 
 export VERSION=wrfv3.8.1	# default is to use current wrf version 
@@ -89,7 +91,7 @@ if [ -n "$GIT" ]; then
    if [ -d 'E-4DWX' ]; then
       rm -rf E-4DWX
    fi
-   git clone git@github.com:NCAR/E-4DWX.git
+   git clone git@github.com:chengw00/E-4DWX.git 
 fi
 
 if [ -d 'E-4DWX' ]; then
@@ -120,10 +122,11 @@ else
   exit 0
 fi
 
-if [ -z "$RANGE"  ]; then
-  for RANGE in $RANGES
+if [ -z "$MEMBER"  ]; then
+  for MEMBER in $MEMBERS
   do
     export RANGE=$RANGE
+    export MEMBER=$MEMBER
     make clean
     make install
   done

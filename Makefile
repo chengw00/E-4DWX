@@ -12,7 +12,7 @@
 #             TARGET_DIR can be overridden on the command line, if
 #             not overridden on the command line the default below is used.
 
-TARGET_DIR=$(DEST)/$(MACHINE)/$(RANGE)
+TARGET_DIR=$(DEST)/$(MACHINE)/$(RANGE)/$(MEMBER)
 
 # Include the standard shared make info (make_defns)
 include $(PWD)/build/make_defns
