@@ -1,0 +1,11 @@
+# Set these in your environment before running build
+#
+#
+#
+# sh
+export BUILD_WORK=<path to git checkout> # defaults to /model/$USER/build_work
+export DEST=<path to destination> # defaults to /model/$USER/build_E4DWX
+
+# csh
+setenv BUILD_WORK <path to git checkout> # defaults to /model/$USER/build_work
+setenv DEST <path to destination> # defaults to /model/$USER/build_E4DWX

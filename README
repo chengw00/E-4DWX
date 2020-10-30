@@ -1,0 +1,2 @@
+This repository will contain all of the member namelists, postprocessing code and ancillary scripts used to run the 4DWX Ensemble system.
+The actual modeling code lives in NCAR/4DWX-Modeling which currently is a WRF model

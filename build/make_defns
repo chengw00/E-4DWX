@@ -1,0 +1,46 @@
+#
+# Function:
+#
+#  This file is the shared Makefile definitions file used by RTFDDA Makefiles.
+#  It contains the common macros across all operating systems
+#
+# Access:
+#
+#  This file is included in individual application Makefiles.
+#
+#  This file and the other files in this directory are accessed via an
+#  environment variable which must be set correctly to this
+#  directory: MS_MAKE_MACROS_DIR (Modeling System Make Definitions).
+#
+# Mar 2007        
+#
+# ==============================================================================
+
+# ---------------- Common definitions ------------------------------------
+#
+# Common commands 
+
+AR              =        ar
+CD              =        cd
+CP		=	 cp
+CPR		=	 cp -r
+ECHO            =        echo
+MAKE            =        make -i
+MKDIR           =        mkdir -p
+MV              =        mv
+RM              =        rm -rf
+LN              =        ln -s -f
+LS		=	 ls
+TOUCH           =        touch
+TEST		=	 test
+SHELL           =        /bin/sh
+PWD		=	 pwd
+DATE		=	 date -u
+
+# Common destinations 
+
+
+# Common clean files
+
+CLEAN_LIST = *.o *~ core* *.exe *.kmo *.mod fort.* *.out *.decoded .ostype .tmpfile
+
