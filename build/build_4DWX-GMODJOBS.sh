@@ -12,7 +12,7 @@ set -x
 
 cwd=`pwd`
 
-BUILDWORKBASE=/model/$USER
+BUILDWORKBASE=/glade/scratch/chengw/git/test/E-4DWX
 [ -d /p/work1/$USER ] && BUILDWORKBASE=/p/work1/$USER
 
 # set env vars if user hasn't set them
@@ -125,8 +125,9 @@ fi
 if [ -z "$MEMBER"  ]; then
   for MEMBER in $MEMBERS
   do
-    export RANGE=$RANGE
+    export RANGE=$RANGES
     export MEMBER=$MEMBER
+    echo "HERE"
     make clean
     make install
   done

@@ -43,9 +43,9 @@ install: dir FORCE
 	for file in $${files} ; do \
 		$(CPR) ./machine/$(MACHINE)/$${file} $(TARGET_DIR) ;\
 	done
-	files=`ls ./members/$(RANGE)/` ;\
+	files=`ls ./jobs/$(RANGE)/$(MEMBER)` ;\
 	for file in $${files} ; do \
-		$(CPR) ./members/$(RANGE)/$${file} $(TARGET_DIR) ;\
+		$(CPR) ./jobs/$(RANGE)/$(MEMBER)/$${file} $(TARGET_DIR) ;\
 	done
 
 	cd $(TARGET_DIR)  ;\
