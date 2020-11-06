@@ -46,6 +46,7 @@ install: dir FORCE
 	files=`ls ./jobs/$(RANGE)/$(MEMBER)` ;\
 	for file in $${files} ; do \
 		$(CPR) ./jobs/$(RANGE)/$(MEMBER)/$${file} $(TARGET_DIR) ;\
+		$(CPR) ./jobs/$(RANGE)/geo*.nc $(TARGET_DIR)/wps ;\
 	done
 
 	cd $(TARGET_DIR)  ;\
