@@ -47,27 +47,27 @@ install: dir FORCE
 	for file in $${files} ; do \
 		$(CPR) ./jobs/$(RANGE)/$(MEMBER)/$${file} $(TARGET_DIR) ;\
 		$(CPR) ./jobs/$(RANGE)/geogrids/geo*.nc $(TARGET_DIR)/wps ;\
-	done
+		cd $(TARGET_DIR)  ;\
+		sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDMPICMDBINDIR&${MPICMD}&g" sed.flexinput.job.pm > flexinput.job.pm && $(RM) sed.flexinput.job.pm ;\
 
-	cd $(TARGET_DIR)  ;\
-	sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDMPICMDBINDIR&${MPICMD}&g" sed.flexinput.job.pm > flexinput.job.pm && $(RM) sed.flexinput.job.pm ;\
+		cd $(TARGET_DIR)  ;\
+		sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDDOTARSUMFORDISTRIB&${DO_TAR_SUM_FOR_DISTRIB}&g" sed.postprocinput.pl > postprocinput.pl && $(RM) sed.postprocinput.pl ;\
 
-	cd $(TARGET_DIR)  ;\
-	sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDDOTARSUMFORDISTRIB&${DO_TAR_SUM_FOR_DISTRIB}&g" sed.postprocinput.pl > postprocinput.pl && $(RM) sed.postprocinput.pl ;\
+		cd $(TARGET_DIR)/scripts  ;\
+		sed -e "s&SEDRANGE&$(RANGE)&g" -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDVERSION&${VERSION}&g" -e "s&SEDACCOUNTKEY&${ACCOUNT_KEY}&g" -e "s&SEDQUEUE&${QUEUE}&g" -e "s&SEDDSP&${DSP}&g" -e "s&SEDMEMBER&$(MEMBER)&g" sed.env_vars.csh > env_vars.csh && $(RM) sed.env_vars.csh ;\
 
-	cd $(TARGET_DIR)/scripts  ;\
-	sed -e "s&SEDRANGE&$(RANGE)&g" -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDVERSION&${VERSION}&g" -e "s&SEDACCOUNTKEY&${ACCOUNT_KEY}&g" -e "s&SEDQUEUE&${QUEUE}&g" -e "s&SEDDSP&${DSP}&g" -e "s&SEDMEMBER&$(MEMBER)&g" sed.env_vars.csh > env_vars.csh && $(RM) sed.env_vars.csh ;\
+		cd $(TARGET_DIR)/config  ;\
 
-	cd $(TARGET_DIR)/config  ;\
-	files=`ls *cfg` ;\
-	for file in $${files} ; do \
-		sed -e "s&SEDPATH&$(BASEDIR)/$(USER)&g" $${file} > `echo $${file} | cut -c5-` && $(RM) $${file} ;\
-	done
+		files=`ls *cfg` ;\
+		for file in $${files} ; do \
+			sed -e "s&SEDPATH&$(BASEDIR)/$(USER)&g" $${file} > `echo $${file} | cut -c5-` && $(RM) $${file} ;\
+		done
 
-	cd $(TARGET_DIR)  ;\
-	dirs="logs tmp" ;\
-	for dir in $${dirs} ; do \
-		$(MKDIR) $${dir} ;\
+		cd $(TARGET_DIR)  ;\
+		dirs="logs tmp" ;\
+		for dir in $${dirs} ; do \
+			$(MKDIR) $${dir} ;\
+		done
 	done
 
 dir:
