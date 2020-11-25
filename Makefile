@@ -56,7 +56,7 @@ install: dir FORCE
 	sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDDOTARSUMFORDISTRIB&${DO_TAR_SUM_FOR_DISTRIB}&g" sed.postprocinput.pl > postprocinput.pl && $(RM) sed.postprocinput.pl ;\
 
 	cd $(TARGET_DIR)/scripts  ;\
-	sed -e "s&SEDRANGE&$(RANGE)&g" -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDVERSION&${VERSION}&g" -e "s&SEDACCOUNTKEY&${ACCOUNT_KEY}&g" -e "s&SEDQUEUE&${QUEUE}&g" -e "s&SEDDSP&${DSP}&g"  sed.env_vars.csh > env_vars.csh && $(RM) sed.env_vars.csh ;\
+	sed -e "s&SEDRANGE&$(RANGE)&g" -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDVERSION&${VERSION}&g" -e "s&SEDACCOUNTKEY&${ACCOUNT_KEY}&g" -e "s&SEDQUEUE&${QUEUE}&g" -e "s&SEDDSP&${DSP}&g" -e "s&SEDMEMBER&$(MEMBER)&g" sed.env_vars.csh > env_vars.csh && $(RM) sed.env_vars.csh ;\
 
 	cd $(TARGET_DIR)/config  ;\
 	files=`ls *cfg` ;\

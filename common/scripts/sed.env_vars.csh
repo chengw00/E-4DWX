@@ -10,14 +10,14 @@
 setenv QSUB_PATH "/opt/pbs/default/bin"
 
 # The job's name:
-setenv GSJOBID "SEDRANGE"
+setenv GSJOBID "$GSJOBID"
 
 # Base directory for RUNDIR could be  /p/work1 or /p/work2
 setenv BASE_DIR "SEDBASEDIR"
 
 # The job's configuration directory
 # (the directory where flexinput.pl, TERRAIN, namelists, etc. are located)
-setenv GSJOBDIR "$BASE_DIR/$LOGNAME/GMODJOBS/$GSJOBID"
+setenv GSJOBDIR "$BASE_DIR/$LOGNAME/GMODJOBS/$GSJOBID/SEDMEMBER"
 
 # The job's configuration file
 setenv FLEXINPUT "$GSJOBDIR/flexinput.pl"
