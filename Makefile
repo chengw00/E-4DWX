@@ -39,16 +39,16 @@ install: dir FORCE
 		$(CPR) ./version/$(VERSION)/$${file} $(TARGET_DIR) ;\
 	done
 
-	#files=`ls ./machine/$(MACHINE)` ;\
-	#for file in $${files} ; do \
-#		$(CPR) ./machine/$(MACHINE)/$${file} $(TARGET_DIR) ;\
-#	done
+	files=`ls ./machine/$(MACHINE)` ;\
+	for file in $${files} ; do \
+		$(CPR) ./machine/$(MACHINE)/$${file} $(TARGET_DIR) ;\
+	done
 	files=`ls ./jobs/$(RANGE)/$(MEMBER)` ;\
 	for file in $${files} ; do \
 		$(CPR) ./jobs/$(RANGE)/$(MEMBER)/$${file} $(TARGET_DIR) ;\
 		$(CPR) ./jobs/$(RANGE)/geogrids/geo*.nc $(TARGET_DIR)/wps ;\
 		cd $(TARGET_DIR)  ;\
-		sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDMPICMDBINDIR&${MPICMD}&g" sed.flexinput.job.pm > flexinput.job.pm && $(RM) sed.flexinput.job.pm ;\
+		sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDMPICMDBINDIR&${MPICMD}&g" -e "s&SEDMEMBER&$(MEMBER)&g" sed.flexinput.job.pm > flexinput.job.pm && $(RM) sed.flexinput.job.pm ;\
 
 		cd $(TARGET_DIR)  ;\
 		sed -e "s&SEDBASEDIR&$(BASEDIR)&g" -e "s&SEDDOTARSUMFORDISTRIB&${DO_TAR_SUM_FOR_DISTRIB}&g" sed.postprocinput.pl > postprocinput.pl && $(RM) sed.postprocinput.pl ;\
