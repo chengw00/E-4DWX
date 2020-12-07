@@ -29,8 +29,10 @@ clean: FORCE
 	$(RM) $(TARGET_DIR)
 
 install: dir FORCE
+	pwd ;\
 	files=`ls ./common` ;\
 	for file in $${files} ; do \
+		pwd ;\
 		$(CPR) ./common/$${file} $(TARGET_DIR) ;\
 	done
 
