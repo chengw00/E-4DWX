@@ -29,10 +29,8 @@ clean: FORCE
 	$(RM) $(TARGET_DIR)
 
 install: dir FORCE
-	xxx=`pwd` ;\
 	files=`ls ./common` ;\
 	for file in $${files} ; do \
-		pwd ;\
 		$(CPR) ./common/$${file} $(TARGET_DIR) ;\
 	done
 
@@ -41,10 +39,10 @@ install: dir FORCE
 		$(CPR) ./version/$(VERSION)/$${file} $(TARGET_DIR) ;\
 	done
 
-	files=`ls ./machine/$(MACHINE)` ;\
-	for file in $${files} ; do \
-		$(CPR) ./machine/$(MACHINE)/$${file} $(TARGET_DIR) ;\
-	done
+	#files=`ls ./machine/$(MACHINE)` ;\
+	#for file in $${files} ; do \
+#		$(CPR) ./machine/$(MACHINE)/$${file} $(TARGET_DIR) ;\
+#	done
 	files=`ls ./jobs/$(RANGE)/$(MEMBER)` ;\
 	for file in $${files} ; do \
 		$(CPR) ./jobs/$(RANGE)/$(MEMBER)/$${file} $(TARGET_DIR) ;\
