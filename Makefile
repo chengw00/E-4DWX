@@ -29,7 +29,7 @@ clean: FORCE
 	$(RM) $(TARGET_DIR)
 
 install: dir FORCE
-	pwd ;\
+	xxx=`pwd` ;\
 	files=`ls ./common` ;\
 	for file in $${files} ; do \
 		pwd ;\
