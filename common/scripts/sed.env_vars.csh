@@ -10,7 +10,7 @@
 setenv QSUB_PATH "/opt/pbs/default/bin"
 
 # The job's name:
-setenv GSJOBID "$GSJOBID"
+setenv GSJOBID "SEDRANGE"
 
 # Base directory for RUNDIR could be  /p/work1 or /p/work2
 setenv BASE_DIR "SEDBASEDIR"
