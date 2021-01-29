@@ -107,7 +107,7 @@ endif
 # run $PERL_FLEX/init.pl to set all variables, make necessary input files, such
 # as ./tmp/pre_process_in_donotedit.pl and ./tmp/cshrc and needed directories
 
-module load python/2.7
+module load python
 
 echo "Calling ${PERL_FLEX}/init.pl with '$argsstr'"
 echo "flexinput file is $FLEXINPUT"
