@@ -46,13 +46,13 @@ $BATCH_SYSTEM = "PBS";
 # The number of CPUs per node
 # must be specified
 #
-$PPN = 2;
+$PPN = 40;
 
 #
 # The number of processors needed for this job
 # must be specified
 #
-$NUM_PROCS = 0;
+$NUM_PROCS = 40;
 
 #
 # MOAB/TORQUE, plus various RTFDDA monitor scripts, will use this
@@ -89,7 +89,7 @@ $D4_start = 44640;
 # The cycle interval length in hours: 1  2   3   6  12
 # Defaults to 1
 #
-$CYC_INT = 3;
+$CYC_INT = 6;
 
 #
 #             cut-off final analysis: 0  0  -1   0   0
@@ -98,7 +98,7 @@ $CYC_INT = 3;
 #     $FIN_END=0 for $CYC_INT=1,2,6,12
 #     $FIN_END=-1 for $CYC_INT=3
 #
-$FIN_END = -1;
+$FIN_END = 0;
 
 #
 # 1 - this job can only cold-start from 00Z and 12Z;
